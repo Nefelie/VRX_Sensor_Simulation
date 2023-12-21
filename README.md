@@ -26,7 +26,7 @@ touch empty_component_config.yaml
 ros2 launch vrx_gazebo generate_wamv.launch.py component_yaml:=`pwd`/empty_component_config.yaml thruster_yaml:=`pwd`/empty_thruster_config.yaml wamv_target:=`pwd`/wamv_target.urdf wamv_locked:=False
 ```
 
-The last line creates a new `urdf`. We can now launch the example world with the new model:
+The last line generates a new `urdf` using the `generate_wamv.launch.py`, which reads the configuration YAML files. We can now launch the example world with the new model:
 
 ```
 ros2 launch vrx_gz competition.launch.py world:=sydney_regatta urdf:=`pwd`/wamv_target.urdf
