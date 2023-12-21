@@ -21,9 +21,9 @@ We first create a new directory to store the new vessel:
 ```
 mkdir ~/my_wamv
 cd ~/my_wamv
-touch empty_thruster_config.yaml
-touch empty_component_config.yaml
-ros2 launch vrx_gazebo generate_wamv.launch.py component_yaml:=`pwd`/empty_component_config.yaml thruster_yaml:=`pwd`/empty_thruster_config.yaml wamv_target:=`pwd`/wamv_target.urdf wamv_locked:=False
+touch thruster_config_v1.yaml
+touch sensor_config_v1.yaml
+ros2 launch vrx_gazebo generate_wamv.launch.py component_yaml:=`pwd`/sensor_config_v1.yaml thruster_yaml:=`pwd`/thruster_config_v1.yaml wamv_target:=`pwd`/wamv_target.urdf wamv_locked:=False
 ```
 
 The last line generates a new `urdf` using the `generate_wamv.launch.py`, which reads the configuration YAML files. We can now launch the example world with the new model:
@@ -32,7 +32,7 @@ The last line generates a new `urdf` using the `generate_wamv.launch.py`, which 
 ros2 launch vrx_gz competition.launch.py world:=sydney_regatta urdf:=`pwd`/wamv_target.urdf
 ```
 
-We setup a dual aft thruster configuration within the `example_thruster_config.yaml` file:
+We setup a dual aft thruster configuration within the `thruster_config_v1.yaml` file:
 ```
 engine:
   - prefix: "left"
@@ -44,7 +44,7 @@ engine:
 
 ```
 
-And the sensor configuration within the `example_component_config.yaml` file:
+And the sensor configuration within the `sensor_config_v1.yaml` file:
 
 ```
 wamv_camera:
@@ -110,7 +110,7 @@ wamv_pinger:
 Then we generate the vessel URDF with the above components:
 
 ```
-ros2 launch vrx_gazebo generate_wamv.launch.py component_yaml:=`pwd`/empty_component_config.yaml thruster_yaml:=`pwd`/example_thruster_config.yaml wamv_target:=`pwd`/wamv_target.urdf wamv_locked:=False
+ros2 launch vrx_gazebo generate_wamv.launch.py component_yaml:=`pwd`/sensor_config_v1.yaml thruster_yaml:=`pwd`/thruster_config_v1.yaml wamv_target:=`pwd`/wamv_target.urdf wamv_locked:=False
 ```
 And then launch the simulation environment with these changes:
 ```
