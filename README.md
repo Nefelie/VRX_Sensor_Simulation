@@ -44,7 +44,7 @@ engine:
 
 ```
 
-And the sensor configuration:
+And the sensor configuration within the `example_component_config.yaml` file:
 
 ```
 wamv_camera:
