@@ -116,3 +116,10 @@ And then launch the simulation environment with these changes:
 ```
 ros2 launch vrx_gz competition.launch.py world:=sydney_regatta urdf:=`pwd`/wamv_target.urdf
 ```
+
+# ASV Wave Sim
+
+```
+nefelie@Nefelie:~/gz_ws$ gz sim -v4 -r waves.sdf
+```
+
